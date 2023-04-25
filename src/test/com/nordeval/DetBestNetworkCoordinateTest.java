@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class DetBestNetworkCoordinateTest extends TestCase {
+public class DetBestNetworkCoordinateTest {
 
     private DetBestNetworkCoordinate detBestNetworkCoordinate;
 
