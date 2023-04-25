@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class DetBestNetworkCoordinate {
 
-    static double calDistance(int x1, int y1, int x2, int y2) {
+    double calDistance(int x1, int y1, int x2, int y2) {
         return (Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));
     }
 
-    static double calSpeed(int reach, double distance) {
+    double calSpeed(int reach, double distance) {
         return (distance > reach) ? 0 : Math.pow((reach - distance), 2);
     }
 
-    static ArrayList<DeviceNetworkCoord> populateDevCoords() {
+    ArrayList<DeviceNetworkCoord> populateDevCoords() {
         ArrayList<DeviceNetworkCoord> test06DevCoords = new ArrayList<DeviceNetworkCoord>();
 
         test06DevCoords.add(new DeviceNetworkCoord(0, 0, 9));
@@ -27,12 +27,12 @@ public class DetBestNetworkCoordinate {
         return test06DevCoords;
     }
 
-    static DeviceNetworkCoord findBestNetworkCoord(ArrayList networkDevCoords, int deviceXCoord, int deviceYCoord) {
+    DeviceNetworkCoord findBestNetworkCoord(ArrayList<DeviceNetworkCoord> networkDevCoords, int deviceXCoord, int deviceYCoord) {
         DeviceNetworkCoord bestNetworkDevCoord = null;
         double speed = -1, speed1 = -1, distance = -1;
 
         if(networkDevCoords != null) {
-            ListIterator listItr = networkDevCoords.listIterator();
+            ListIterator<DeviceNetworkCoord> listItr = networkDevCoords.listIterator();
 
             while(listItr.hasNext()) {
                 DeviceNetworkCoord devCoord = (DeviceNetworkCoord)listItr.next();
@@ -61,10 +61,12 @@ public class DetBestNetworkCoordinate {
         int dy1=sc.nextInt();
 		
 		sc.close();
+		
+		DetBestNetworkCoordinate bestNetworkCoordinate = new DetBestNetworkCoordinate();
 
-        ArrayList<DeviceNetworkCoord> networkDevCoords = populateDevCoords();
+        ArrayList<DeviceNetworkCoord> networkDevCoords = bestNetworkCoordinate.populateDevCoords();
 
-        DeviceNetworkCoord bestNetworkDevCoord = findBestNetworkCoord(networkDevCoords, dx1, dy1);
+        DeviceNetworkCoord bestNetworkDevCoord = bestNetworkCoordinate.findBestNetworkCoord(networkDevCoords, dx1, dy1);
 
         if(bestNetworkDevCoord != null) {
             System.out.println("Best network station for point " + dx1 + ", " + dy1 + " is : " + bestNetworkDevCoord.getXcoord() + "," + bestNetworkDevCoord.getYcoord() + " with speed : " + bestNetworkDevCoord.getSpeed());
