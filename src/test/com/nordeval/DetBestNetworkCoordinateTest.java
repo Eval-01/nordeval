@@ -40,9 +40,9 @@ public class DetBestNetworkCoordinateTest extends TestCase {
         ArrayList<DeviceNetworkCoord> networkDevCoords = detBestNetworkCoordinate.populateDevCoords();
         DeviceNetworkCoord networkDevCoord = networkDevCoords.get(3);
 
-        assertEquals(networkDevCoord.getXcoord(), 18, 0);
-        assertEquals(networkDevCoord.getYcoord(), 18, 0);
-        assertEquals(networkDevCoord.getReach(), 13, 0);
+        assertEquals(networkDevCoord.getXcoord(), 18);
+        assertEquals(networkDevCoord.getYcoord(), 18);
+        assertEquals(networkDevCoord.getReach(), 13);
     }
 
     @Test
@@ -51,8 +51,8 @@ public class DetBestNetworkCoordinateTest extends TestCase {
 
         DeviceNetworkCoord deviceNetworkCoord = detBestNetworkCoordinate.findBestNetworkCoord(networkDevCoords, 10, 10);
 
-        assertEquals(deviceNetworkCoord.getXcoord(), 15, 0);
-        assertEquals(deviceNetworkCoord.getYcoord(), 10, 0);
-        assertEquals(deviceNetworkCoord.getSpeed(), 49.0);
+        assertEquals(deviceNetworkCoord.getXcoord(), 15);
+        assertEquals(deviceNetworkCoord.getYcoord(), 10);
+        assertEquals(deviceNetworkCoord.getSpeed(), 49.0, 0);
     }
 }
