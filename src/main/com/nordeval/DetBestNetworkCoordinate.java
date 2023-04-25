@@ -59,6 +59,8 @@ public class DetBestNetworkCoordinate {
 
         System.out.println("Enter device's Y point");
         int dy1=sc.nextInt();
+		
+		sc.close();
 
         ArrayList<DeviceNetworkCoord> networkDevCoords = populateDevCoords();
 
